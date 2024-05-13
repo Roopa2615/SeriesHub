@@ -6,11 +6,18 @@ import CardsList from "../Components/CardsList";
 
 const HomePage = () => {
   return (
-    <Box sx={{width:'100%', heigth:'100%'}}>
+    <Box sx={{ width: "100%", heigth: "100%" }}>
       <Header />
-      <Box sx={{display:'flex', flexDirection:'row', marginTop:"20px", gap:'280px'}}>
-      <SideBar />
-      <CardsList />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          marginTop: "20px",
+          gap: "280px",
+        }}
+      >
+        <SideBar />
+        <CardsList />
       </Box>
     </Box>
   );

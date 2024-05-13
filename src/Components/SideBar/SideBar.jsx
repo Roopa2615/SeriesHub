@@ -1,6 +1,6 @@
 import { Box, IconButton, Link, Typography } from "@mui/material";
 import React from "react";
-import VerifiedIcon from '@mui/icons-material/Verified';
+import VerifiedIcon from "@mui/icons-material/Verified";
 
 const SideBar = () => {
   const popularShows = [
@@ -57,68 +57,80 @@ const SideBar = () => {
   ];
 
   return (
-      <Box
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textTransform: "none",
+        gap:'10px'
+      }}
+    >
+      <Typography
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textTransform: "none",
+          fontFamily: "Open Sans",
+          fontWeight: "bold",
+          fontSize: "16px",
+          width: "100%",
+          textAlign: "left",
         }}
       >
-        <Typography
-          sx={{ fontFamily: "Open Sans", fontWeight: "bold", fontSize: "16px" }}
+        Popular
+      </Typography>
+      {popularShows && (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            gap:'10px'
+          }}
         >
-          Popular
-        </Typography>
-        {popularShows && (
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-start",
-            }}
-          >
-            {popularShows.map((item) => (
-              <Box
+          {popularShows.map((item) => (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "6px",
+                // padding: "8px 0px",
+                alignItems: "center",
+              }}
+            >
+              <a
                 sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  gap: "6px",
-                  padding: "10px 0px",
-                  alignItems: "center"
+                  borderRadius: "5px",
                 }}
               >
-                <a
-                  sx={{
-                    borderRadius: "5px"
-                  }}
-                >
-                  <img
-                    src={item.path}
-                    alt="image"
-                    style={{ width: "25px", borderRadius: "5px", cursor:'pointer' }}
-                  />
-                </a>
-                <Link
-                  key={item.id}
-                  sx={{
-                    textTransform: "none",
+                <img
+                  src={item.path}
+                  alt="image"
+                  style={{
+                    width: "25px",
+                    borderRadius: "5px",
                     cursor: "pointer",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                    fontFamily: "Open Sans",
-                    fontSize: "14px",
-                    color: "#0d0d0d",
                   }}
-                >
-                  {item.title} 
-                </Link>
-                <VerifiedIcon sx={{width:'12px'}} />
-              </Box>
-            ))}
-          </Box>
-        )}
-      </Box>
+                />
+              </a>
+              <Link
+                key={item.id}
+                sx={{
+                  textTransform: "none",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontFamily: "Open Sans",
+                  fontSize: "14px",
+                  color: "#0d0d0d",
+                }}
+              >
+                {item.title}
+              </Link>
+              <VerifiedIcon sx={{ width: "12px" }} />
+            </Box>
+          ))}
+        </Box>
+      )}
+    </Box>
   );
 };
 
