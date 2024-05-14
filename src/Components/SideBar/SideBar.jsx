@@ -1,61 +1,9 @@
-import { Box, IconButton, Link, Typography } from "@mui/material";
+import { Box, Link, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import { popularShows } from "../../Constants/PopularShows";
 
 const SideBar = () => {
-  const popularShows = [
-    {
-      id: 1,
-      title: "HW News Network",
-      path: "https://s2.dmcdn.net/u/9Z4kJ1Yryecy2RkkM/120x120",
-    },
-    {
-      id: 2,
-      title: "OutlookIndia",
-      path: "https://s1.dmcdn.net/u/9GuJY1bPlTkyUbnRk/120x120",
-    },
-    {
-      id: 3,
-      title: "HW News English",
-      path: "https://s2.dmcdn.net/u/9axCH1YWyrrkdpWre/120x120",
-    },
-    {
-      id: 4,
-      title: "HW News Marathi",
-      path: "https://s1.dmcdn.net/u/9aV-a1YVsMJG472Cs/120x120",
-    },
-    {
-      id: 5,
-      title: "Comedy Tadka",
-      path: "https://s1.dmcdn.net/u/9aIp21YgjJkL6a-O-/120x120",
-    },
-    {
-      id: 6,
-      title: "Tuk Tuk Tv",
-      path: "https://s2.dmcdn.net/u/9Xgy91ZkfZRg0D-c0/120x120",
-    },
-    {
-      id: 7,
-      title: "Moxx Music Bhakti",
-      path: "https://s2.dmcdn.net/u/9cuvV1YejVCKHVjSS/120x120",
-    },
-    {
-      id: 8,
-      title: "Aaj Tak",
-      path: "https://s2.dmcdn.net/u/6DJwr1af-zjsucxoa/120x120",
-    },
-    {
-      id: 9,
-      title: "India Today",
-      path: "https://s2.dmcdn.net/u/1IpKF1ZD3FwraBvqV/120x120",
-    },
-    {
-      id: 10,
-      title: "New Nation",
-      path: "https://s2.dmcdn.net/u/8F6W71bQmwmlZUz9H/120x120",
-    },
-  ];
-
   return (
     <Box
       sx={{
@@ -63,7 +11,7 @@ const SideBar = () => {
         flexDirection: "column",
         alignItems: "center",
         textTransform: "none",
-        gap:'10px'
+        gap: "10px",
       }}
     >
       <Typography
@@ -83,27 +31,28 @@ const SideBar = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-start",
-            gap:'10px'
+            gap: "10px",
           }}
         >
           {popularShows.map((item) => (
             <Box
+              key={item.id}
               sx={{
                 display: "flex",
                 flexDirection: "row",
                 gap: "6px",
-                // padding: "8px 0px",
                 alignItems: "center",
               }}
             >
               <a
+                href=""
                 sx={{
                   borderRadius: "5px",
                 }}
               >
                 <img
                   src={item.path}
-                  alt="image"
+                  alt="series"
                   style={{
                     width: "25px",
                     borderRadius: "5px",
@@ -125,7 +74,9 @@ const SideBar = () => {
               >
                 {item.title}
               </Link>
-              <VerifiedIcon sx={{ width: "12px" }} />
+              <Tooltip title="Verified Partner">
+                <VerifiedIcon sx={{ width: "12px" }} />
+              </Tooltip>
             </Box>
           ))}
         </Box>

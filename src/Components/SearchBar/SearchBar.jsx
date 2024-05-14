@@ -20,7 +20,7 @@ const SearchBar = () => {
   };
 
   return (
-    <Box sx={{ width: "35%" }}>
+    <Box sx={{ width: "30%" }}>
       <TextField
         variant="outlined"
         value={searchValue}
