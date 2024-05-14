@@ -2,8 +2,20 @@ import React from "react";
 import { NavBar } from "../../Common";
 import { Box, Typography } from "@mui/material";
 import SearchBar from "../../SearchBar";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const handleClick = () => {
+    if(location.pathname !== '/'){
+      navigate('/')
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -22,7 +34,9 @@ const Header = () => {
           fontSize: "30px",
           fontStyle: "italic",
           color: "#1976d8",
+          cursor:'pointer'
         }}
+        onClick={handleClick}
       >
         SERIES HUB
       </Typography>
