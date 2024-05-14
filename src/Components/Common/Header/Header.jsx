@@ -1,6 +1,7 @@
 import React from "react";
-import { NavBar, SearchBar } from "../../Common";
+import { NavBar } from "../../Common";
 import { Box, Typography } from "@mui/material";
+import SearchBar from "../../SearchBar";
 
 const Header = () => {
   return (
@@ -10,7 +11,8 @@ const Header = () => {
         flexDirection: "row",
         justifyContent: "space-between",
         fontFamily: "Open Sans",
-        alignItems:'center'
+        alignItems:'center',
+        padding:'10px' 
       }}
     >
       <Typography
