@@ -130,6 +130,7 @@ const CardsList = () => {
                         border: "#f8f8f8",
                         borderRadius: "9px",
                         background: "#f8f8f8",
+                        cursor:'pointer'
                       }}
                     >
                       {icon.iconName}

@@ -3,6 +3,7 @@ import React from "react";
 import { styled } from "@mui/system";
 import LoginIcon from "@mui/icons-material/Login";
 import SignUpIcon from "@mui/icons-material/PersonOutline";
+import { useNavigate } from "react-router-dom";
 
 const ButtonWrapper = styled(Box)({
   display: "flex",
@@ -11,6 +12,17 @@ const ButtonWrapper = styled(Box)({
 });
 
 const NavBar = () => {
+
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/login")
+  }
+
+  const handleSignUp = () => {
+    navigate('/signup')
+  }
+
   return (
     <ButtonWrapper>
       <Button
@@ -25,6 +37,7 @@ const NavBar = () => {
           padding: "18px",
         }}
         startIcon={<LoginIcon />}
+        onClick={handleLogin}
       >
         Log In
       </Button>
@@ -41,6 +54,7 @@ const NavBar = () => {
           padding: "18px",
         }}
         startIcon={<SignUpIcon />}
+        onClick={handleSignUp}
       >
         Sign up
       </Button>
