@@ -32,6 +32,7 @@ const HomePage = () => {
             width:'100%',
             marginTop: "60px",
             padding: "15px",
+            justifyContent: "center",
             '@media (min-width: 765px)': {
               position: "fixed",
               justifyContent: "flex-start",
@@ -56,7 +57,8 @@ const HomePage = () => {
               marginLeft:'15%'
             },
             '@media (min-width: 680px) and (max-width: 765px)': {
-              marginTop:'18%'
+              marginTop:'18%',
+              justifyContent: "center",
             },
             '@media (max-width: 764px)': {
               marginTop:'0%'
