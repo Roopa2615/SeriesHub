@@ -70,12 +70,22 @@ const SideBar = () => {
                   fontFamily: "Open Sans",
                   fontSize: "14px",
                   color: "#0d0d0d",
+                  "@media (max-width: 1023px)": {
+                    display: "none",
+                  },
                 }}
               >
                 {item.title}
               </Link>
               <Tooltip title="Verified Partner">
-                <VerifiedIcon sx={{ width: "12px" }} />
+                <VerifiedIcon
+                  sx={{
+                    width: "12px",
+                    "@media (max-width: 1023px)": {
+                      display: "none",
+                    },
+                  }}
+                />
               </Tooltip>
             </Box>
           ))}

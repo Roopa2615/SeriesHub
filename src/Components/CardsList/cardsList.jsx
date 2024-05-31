@@ -7,7 +7,9 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SendOutlinedIcon from "@mui/icons-material/Send";
 import "./cardList.css";
 
-const CardsList = () => {
+const CardsList = ({ data }) => {
+  let availableData = data.length ? data : newsFeed;
+
   const icons = [
     { id: 1, iconName: <FavoriteBorderIcon style={{ width: "20px" }} /> },
     { id: 2, iconName: <BookmarkBorderIcon style={{ width: "20px" }} /> },
@@ -22,8 +24,8 @@ const CardsList = () => {
   ];
   return (
     <>
-      {newsFeed &&
-        newsFeed.map((card) => (
+      {availableData &&
+        availableData.map((card) => (
           <Box
             sx={{
               display: "flex",
@@ -130,7 +132,7 @@ const CardsList = () => {
                         border: "#f8f8f8",
                         borderRadius: "9px",
                         background: "#f8f8f8",
-                        cursor:'pointer'
+                        cursor: "pointer",
                       }}
                     >
                       {icon.iconName}

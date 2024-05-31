@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../Components/Common";
 import { Box } from "@mui/system";
 import SideBar from "../Components/SideBar";
 import CardsList from "../Components/CardsList";
+import axios from 'axios';
 
 const HomePage = () => {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/api/series")
+      .then((res) => {
+        console.log('res', res )
+        setData(res.data)})
+      .catch((err) => console.log(err.message));
+  }, []);
+
   return (
     <Box sx={{ width: "100%", heigth: "100%" }}>
       <Box sx={{ position: "fixed", width: "100%", background: "#FFFFFF" }}>
@@ -33,9 +45,12 @@ const HomePage = () => {
             height: "100%",
             marginBottom: "40px",
             gap: "30px",
+            '@media (max-width: 1023px)': {
+              marginLeft:'15%'
+            }
           }}
         >
-          <CardsList />
+          <CardsList data={data} />
         </Box>
       </Box>
     </Box>
