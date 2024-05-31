@@ -21,6 +21,9 @@ const SideBar = () => {
           fontSize: "16px",
           width: "100%",
           textAlign: "left",
+          '@media(max-width:765px)': {
+            display:'none'
+          }
         }}
       >
         Popular
@@ -32,6 +35,9 @@ const SideBar = () => {
             flexDirection: "column",
             justifyContent: "flex-start",
             gap: "10px",
+            "@media (max-width: 765px)": {
+              flexDirection: "row",
+            },
           }}
         >
           {popularShows.map((item) => (
