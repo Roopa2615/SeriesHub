@@ -22,14 +22,22 @@ const HomePage = () => {
       <Box sx={{ position: "fixed", width: "100%", background: "#FFFFFF" }}>
         <Header />
       </Box>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex",
+            '@media (max-width: 765px)': {
+              flexDirection:'column'
+            }, }}>
         <Box
           sx={{
             display: "flex",
-            justifyContent: "flex-start",
-            position: "fixed",
+            width:'100%',
             marginTop: "60px",
-            padding: "10px",
+            padding: "15px",
+            justifyContent: "center",
+            '@media (min-width: 765px)': {
+              position: "fixed",
+              justifyContent: "flex-start",
+              padding: "10px",
+            },
           }}
         >
           <SideBar />
@@ -47,7 +55,14 @@ const HomePage = () => {
             gap: "30px",
             '@media (max-width: 1023px)': {
               marginLeft:'15%'
-            }
+            },
+            '@media (min-width: 680px) and (max-width: 765px)': {
+              marginTop:'18%',
+              justifyContent: "center",
+            },
+            '@media (max-width: 764px)': {
+              marginTop:'0%'
+            },
           }}
         >
           <CardsList data={data} />

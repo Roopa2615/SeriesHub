@@ -30,9 +30,12 @@ const CardsList = ({ data }) => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "56%",
+              width: "75%",
               gap: "6px",
               height: "100%",
+              '@media (max-width: 765px)':{
+                width: "90%",
+              }
             }}
             key={card.id}
           >
