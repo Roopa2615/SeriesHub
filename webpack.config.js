@@ -6,21 +6,18 @@ const BundleAnalyzerPlugin =
 module.exports = {
   context: __dirname,
   entry: "./src/index.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
-  },
   module: {
     rules: [
       {
-        test: /\.(js$|jsx)/,
-        use: ["raw-loader", "style-loader", "css-loader", "sass-loader"],
-        exclude: /node_modules/
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
-        test: /\.(css$|scss)/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.(css$)/,
+        use: ["style-loader", "css-loader"],
         exclude: /node_modules/
       },
       {
@@ -29,16 +26,21 @@ module.exports = {
       },
     ],
   },
-
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
+    clean: true,
+  },
   plugins: [new BundleAnalyzerPlugin(), new HtmlWebPackPlugin()],
 
   devServer: {
     static: {
-      directory: path.join(__dirname, "public"),
+      directory: path.join(__dirname, "dist"),
     },
-    port: 9000,
     compress: true,
+    port: 9000,
   },
-
-  mode: "development",
 };
