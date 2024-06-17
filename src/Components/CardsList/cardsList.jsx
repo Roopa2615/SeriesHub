@@ -6,6 +6,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SendOutlinedIcon from "@mui/icons-material/Send";
 import "./cardList.css";
+import robot from '../../assets/svgs/yellow-robot-with-white-ruler-his-hand_967785-63256.jpg'
 
 const CardsList = ({ data }) => {
   let availableData = data.length ? data : newsFeed;
@@ -106,6 +107,10 @@ const CardsList = ({ data }) => {
                 flexDirection: "row",
                 width: "100%",
                 gap: "10px",
+                '@media (max-width: 765px)':{
+                  flexDirection: "column",
+                  width:'80%'
+                }
               }}
             >
               <Card
@@ -114,9 +119,16 @@ const CardsList = ({ data }) => {
                   textAlign: "center",
                   boxShadow: "0px 0px 2px 2px #00000033",
                   width: "100%",
+                  backgroundImage: `url(${robot})`,
+                  backgroundPosition: 'center',
+                  backgroundRepeat:'no-repeat',
+                  backgroundSize:'contain',  
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center'
                 }}
               >
-                card
+                News Feed
               </Card>
               <Box
                 sx={{
@@ -124,6 +136,9 @@ const CardsList = ({ data }) => {
                   flexDirection: "column",
                   justifyContent: "flex-end",
                   gap: "10px",
+                  '@media (max-width: 765px)':{
+                    flexDirection: "row",
+                  }
                 }}
               >
                 {icons &&
