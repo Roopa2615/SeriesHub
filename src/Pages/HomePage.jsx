@@ -19,7 +19,7 @@ const HomePage = () => {
 
   return (
     <Box sx={{ width: "100%", heigth: "100%" }}>
-      <Box sx={{ position: "fixed", width: "100%", background: "#FFFFFF" }}>
+      <Box sx={{ position: "fixed", width: "100%", background: "#FFFFFF", zIndex:1 }}>
         <Header />
       </Box>
       <Box sx={{ display: "flex",
